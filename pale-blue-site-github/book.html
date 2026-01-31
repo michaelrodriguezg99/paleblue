@@ -1,0 +1,93 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Book a Call | Pale Blue The Group LLC</title>
+  <meta name="description" content="Pale Blue The Group LLC — Federal capture planning, proposal strategy, automation, and project management support." />
+  <link rel="icon" href="./assets/pale-blue-logo.jpeg" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="./styles.css" />
+  <script defer src="./script.js"></script>
+  <meta name="calendly:url" content="https://calendly.com/your-org/your-event" />
+</head>
+<body>
+  <header class="header">
+    <div class="container header__inner">
+      <a class="brand" href="./index.html">
+        <img class="brand__logo" src="./assets/pale-blue-logo.jpeg" alt="Pale Blue The Group LLC logo" />
+        <div class="brand__text">
+          <div class="brand__name">PALE BLUE</div>
+          <div class="brand__sub">THE GROUP, LLC</div>
+        </div>
+      </a>
+      <nav class="nav" aria-label="Primary">
+        <a href="./services.html">Services</a>
+        <a href="./capture-system.html">Capture System</a>
+        <a href="./about.html">About</a>
+        <a href="./contact.html">Contact</a>
+      </nav>
+      <div class="header__cta">
+        <a class="btn btn--ghost" href="./checklist.html">Capability Checklist</a>
+        <a class="btn" href="./book.html">Book a Call</a>
+      </div>
+      <button class="menu" id="menuBtn" aria-label="Open menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+    <div class="mobileNav" id="mobileNav" hidden>
+      <div class="container mobileNav__inner">
+        <a href="./services.html" data-close>Services</a>
+        <a href="./capture-system.html" data-close>Capture System</a>
+        <a href="./about.html" data-close>About</a>
+        <a href="./contact.html" data-close>Contact</a>
+        <div class="mobileNav__buttons">
+          <a class="btn btn--ghost" href="./checklist.html" data-close>Capability Checklist</a>
+          <a class="btn" href="./book.html" data-close>Book a Call</a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main id="main">
+    <section class="pageHero">
+    <div class="container">
+      <h1>Book a Capture Readiness Call</h1>
+      <p class="section__sub">Use the scheduler below (Calendly). If it’s not enabled yet, submit the intake form and we’ll follow up.</p>
+    </div>
+  </section>
+
+  <section class="pageWrap">
+    <div class="container pageGrid">
+      <div class="card">
+        <h2>Schedule</h2>
+        <div id="calendlyEmbed"></div>
+      </div>
+
+      <aside class="card">
+        <h2>Intake form</h2>
+        <form class="form" id="bookIntakeForm">
+          <label>Company <input name="company" required /></label>
+          <label>Email <input type="email" name="email" required /></label>
+          <label>NAICS (optional) <input name="naics" /></label>
+          <label>Target agencies (optional) <input name="agencies" placeholder="e.g., USACE, GSA, VA" /></label>
+          <label>Current pipeline (optional) <input name="pipeline" placeholder="e.g., 3 targets, 1 active RFP" /></label>
+          <button class="btn btn--full" type="submit">Send intake</button>
+          <p class="tiny muted">We’ll confirm by email and share next steps.</p>
+          <div class="notice" id="bookNotice" role="status" aria-live="polite" hidden></div>
+        </form>
+      </aside>
+    </div>
+  </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container footer__bottom">
+      <span>© <span id="year"></span> Pale Blue The Group LLC. All rights reserved.</span>
+      <span class="muted">Carolina, Puerto Rico • +1 (787) 428-1417</span>
+    </div>
+  </footer>
+</body>
+</html>

@@ -1,0 +1,125 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Services | Pale Blue The Group LLC</title>
+  <meta name="description" content="Pale Blue The Group LLC — Federal capture planning, proposal strategy, automation, and project management support." />
+  <link rel="icon" href="./assets/pale-blue-logo.jpeg" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="./styles.css" />
+  <script defer src="./script.js"></script>
+  <meta name="calendly:url" content="https://calendly.com/your-org/your-event" />
+</head>
+<body>
+  <header class="header">
+    <div class="container header__inner">
+      <a class="brand" href="./index.html">
+        <img class="brand__logo" src="./assets/pale-blue-logo.jpeg" alt="Pale Blue The Group LLC logo" />
+        <div class="brand__text">
+          <div class="brand__name">PALE BLUE</div>
+          <div class="brand__sub">THE GROUP, LLC</div>
+        </div>
+      </a>
+      <nav class="nav" aria-label="Primary">
+        <a href="./services.html">Services</a>
+        <a href="./capture-system.html">Capture System</a>
+        <a href="./about.html">About</a>
+        <a href="./contact.html">Contact</a>
+      </nav>
+      <div class="header__cta">
+        <a class="btn btn--ghost" href="./checklist.html">Capability Checklist</a>
+        <a class="btn" href="./book.html">Book a Call</a>
+      </div>
+      <button class="menu" id="menuBtn" aria-label="Open menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+    <div class="mobileNav" id="mobileNav" hidden>
+      <div class="container mobileNav__inner">
+        <a href="./services.html" data-close>Services</a>
+        <a href="./capture-system.html" data-close>Capture System</a>
+        <a href="./about.html" data-close>About</a>
+        <a href="./contact.html" data-close>Contact</a>
+        <div class="mobileNav__buttons">
+          <a class="btn btn--ghost" href="./checklist.html" data-close>Capability Checklist</a>
+          <a class="btn" href="./book.html" data-close>Book a Call</a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main id="main">
+    <section class="pageHero">
+    <div class="container">
+      <h1>Services</h1>
+      <p class="section__sub">Structured capture, disciplined project management, and systems support that scale.</p>
+      <div class="badgeRow">
+        <span class="badge">Repeatable</span><span class="badge">Traceable</span><span class="badge">Compliance-oriented</span><span class="badge">Data-driven</span>
+      </div>
+    </div>
+  </section>
+
+  <section class="pageWrap">
+    <div class="container pageGrid">
+      <div class="card">
+        <h2>Federal capture planning</h2>
+        <p class="muted">Capture plans, win themes, gate reviews, and stakeholder mapping.</p>
+        <ul class="bullets">
+          <li>Account and agency targeting</li>
+          <li>Opportunity shaping + competitor scan</li>
+          <li>Win theme development + proof mapping</li>
+          <li>Gate reviews and action cadence</li>
+        </ul>
+
+        <div style="height:14px"></div>
+        <h2>Opportunity research</h2>
+        <p class="muted">Pipeline building and fit scoring so you pursue the right work.</p>
+        <ul class="bullets">
+          <li>Market intel + keyword watchlists</li>
+          <li>Fit scoring model</li>
+          <li>Pipeline dashboard setup</li>
+        </ul>
+
+        <div style="height:14px"></div>
+        <h2>Proposal strategy</h2>
+        <ul class="bullets">
+          <li>Compliance matrix + outline</li>
+          <li>Storyboards and page plans</li>
+          <li>Color team facilitation</li>
+        </ul>
+
+        <div style="height:14px"></div>
+        <h2>IT & automation</h2>
+        <ul class="bullets">
+          <li>CRM + capture dashboards</li>
+          <li>Workflow automations</li>
+          <li>Reporting cadence templates</li>
+        </ul>
+      </div>
+
+      <aside class="card">
+        <h2>Start here</h2>
+        <p class="muted">Book a readiness call to review your targets, pipeline, and best next step.</p>
+        <a class="btn btn--full" href="./book.html">Book a Capture Readiness Call</a>
+        <div style="height:10px"></div>
+        <a class="btn btn--ghost btn--full" href="./checklist.html">Get the Capability Checklist</a>
+
+        <div style="height:16px"></div>
+        <h3>Phone</h3>
+        <p><a href="tel:+17874281417">+1 (787) 428-1417</a></p>
+      </aside>
+    </div>
+  </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container footer__bottom">
+      <span>© <span id="year"></span> Pale Blue The Group LLC. All rights reserved.</span>
+      <span class="muted">Carolina, Puerto Rico • +1 (787) 428-1417</span>
+    </div>
+  </footer>
+</body>
+</html>

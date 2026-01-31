@@ -1,0 +1,96 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Contact | Pale Blue The Group LLC</title>
+  <meta name="description" content="Pale Blue The Group LLC — Federal capture planning, proposal strategy, automation, and project management support." />
+  <link rel="icon" href="./assets/pale-blue-logo.jpeg" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="./styles.css" />
+  <script defer src="./script.js"></script>
+  <meta name="calendly:url" content="https://calendly.com/your-org/your-event" />
+</head>
+<body>
+  <header class="header">
+    <div class="container header__inner">
+      <a class="brand" href="./index.html">
+        <img class="brand__logo" src="./assets/pale-blue-logo.jpeg" alt="Pale Blue The Group LLC logo" />
+        <div class="brand__text">
+          <div class="brand__name">PALE BLUE</div>
+          <div class="brand__sub">THE GROUP, LLC</div>
+        </div>
+      </a>
+      <nav class="nav" aria-label="Primary">
+        <a href="./services.html">Services</a>
+        <a href="./capture-system.html">Capture System</a>
+        <a href="./about.html">About</a>
+        <a href="./contact.html">Contact</a>
+      </nav>
+      <div class="header__cta">
+        <a class="btn btn--ghost" href="./checklist.html">Capability Checklist</a>
+        <a class="btn" href="./book.html">Book a Call</a>
+      </div>
+      <button class="menu" id="menuBtn" aria-label="Open menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+    <div class="mobileNav" id="mobileNav" hidden>
+      <div class="container mobileNav__inner">
+        <a href="./services.html" data-close>Services</a>
+        <a href="./capture-system.html" data-close>Capture System</a>
+        <a href="./about.html" data-close>About</a>
+        <a href="./contact.html" data-close>Contact</a>
+        <div class="mobileNav__buttons">
+          <a class="btn btn--ghost" href="./checklist.html" data-close>Capability Checklist</a>
+          <a class="btn" href="./book.html" data-close>Book a Call</a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main id="main">
+    <section class="pageHero">
+    <div class="container">
+      <h1>Contact</h1>
+      <p class="section__sub">Tell us what you’re pursuing and how we can help.</p>
+    </div>
+  </section>
+
+  <section class="pageWrap">
+    <div class="container pageGrid">
+      <div class="card">
+        <h2>Send a message</h2>
+        <form class="form" id="contactForm">
+          <label>Name <input name="name" autocomplete="name" required /></label>
+          <label>Email <input type="email" name="email" autocomplete="email" required /></label>
+          <label>Message <textarea name="message" required placeholder="What are you pursuing? What help do you need?"></textarea></label>
+          <button class="btn btn--full" type="submit">Send</button>
+          <div class="notice" id="contactNotice" role="status" aria-live="polite" hidden></div>
+        </form>
+      </div>
+
+      <aside class="card">
+        <h2>Phone</h2>
+        <p><a href="tel:+17874281417">+1 (787) 428-1417</a></p>
+        <div style="height:10px"></div>
+        <h2>Headquarters</h2>
+        <p class="muted">Carolina, Puerto Rico</p>
+        <div style="height:10px"></div>
+        <h2>Book</h2>
+        <a class="btn btn--full" href="./book.html">Book a call</a>
+      </aside>
+    </div>
+  </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container footer__bottom">
+      <span>© <span id="year"></span> Pale Blue The Group LLC. All rights reserved.</span>
+      <span class="muted">Carolina, Puerto Rico • +1 (787) 428-1417</span>
+    </div>
+  </footer>
+</body>
+</html>
