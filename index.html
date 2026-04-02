@@ -302,6 +302,22 @@
       color: var(--muted);
       margin-top: 3px;
     }
+    .team-avatar {
+  width: 96px;
+  height: 96px;
+  border-radius: 50%;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+        box-shadow: 0 0 0 8px rgba(255,255,255,0.04);
+}
+
+.team-avatar img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
     .nav-links {
       display: none;
       align-items: center;
@@ -1331,39 +1347,68 @@
         </div>
 
         <div class="team-grid">
-          <!-- Edgar -->
-          <article class="team-card reveal">
-            <div class="team-avatar" aria-label="Edgar Millan Guevarez">
-              <span class="team-initials" aria-hidden="true">EM</span>
-            </div>
-            <h3 class="team-name">Edgar Millan Guevarez</h3>
-            <p class="team-role">Founder &amp; Federal Programs Lead<br><small style="font-weight:400;color:var(--muted);font-family:var(--font-body);">PMP | Federal Construction &amp; Document Control</small></p>
-            <p class="team-bio">PMP-certified project leader with deep experience in federal construction and document control. Edgar ensures every engagement is executed with compliance, clarity, and performance from capture through closeout.</p>
-          </article>
+<!-- Edgar -->
+<article class="team-card reveal">
+  <div class="team-avatar" aria-label="Edgar Millan Guevarez">
+    <img src="https://media.licdn.com/dms/image/v2/D4E03AQHZ1wgPfGq64w/profile-displayphoto-scale_200_200/B4EZxo7d_bI4AY-/0/1771286946417?e=1776902400&v=beta&t=FxywHYYLv4qy3B3vqzvC6BtiJZ18zmvYuqC5lZGCMWs" alt="Edgar Millan Guevarez">
+  </div>
 
-          <!-- Diego -->
-          <article class="team-card reveal reveal-d2">
-            <div class="team-avatar" aria-label="Diego Millan Guevarez">
-              <span class="team-initials" aria-hidden="true">DM</span>
-            </div>
-            <h3 class="team-name">Diego Millan Guevarez</h3>
-            <p class="team-role">Co-Founder &amp; EHS Lead<br><small style="font-weight:400;color:var(--muted);font-family:var(--font-body);">Environmental Health &amp; Safety</small></p>
-            <p class="team-bio">Diego leads environmental health and safety strategy, bringing operational expertise to construction and field-based federal projects. His focus on safety systems and compliance strengthens every deliverable.</p>
-          </article>
+  <h3 class="team-name">Edgar Millan Guevarez</h3>
 
-          <!-- Michael -->
-          <article class="team-card reveal reveal-d4">
-            <div class="team-avatar" aria-label="Michael Rodriguez Guevarez">
-<img 
-  src="https://media.licdn.com/dms/image/v2/D4E03AQERsrxj6aJCyg/profile-displayphoto-scale_100_100/B4EZlfXqYfHoAc-/0/1758241663573?e=1776902400&v=beta&t=yz5f31l0U_dvWHkOPEiv9sJBNhabEu9UDCadog4nsz0"
-  alt="Profile photo"
-  class="team-initials"
-/>
-            </div>
-            <h3 class="team-name">Michael Rodriguez Guevarez</h3>
-            <p class="team-role">Software Engineer &amp; Power Platform Expert<br><small style="font-weight:400;color:var(--muted);font-family:var(--font-body);">Full-Stack Development &amp; Automation</small></p>
-            <p class="team-bio">Michael builds the automation systems, dashboards, and custom software behind Pale Blue's data-driven approach. From Power Platform to full-stack development, he turns complexity into clarity.</p>
-          </article>
+  <p class="team-role">
+    Founder &amp; Federal Programs Lead<br>
+    <small style="font-weight:400;color:var(--muted);font-family:var(--font-body);">
+      PMP | Federal Construction &amp; Document Control
+    </small>
+  </p>
+
+  <p class="team-bio">
+    PMP-certified project leader with deep experience in federal construction and document control. Edgar ensures every engagement is executed with compliance, clarity, and performance from capture through closeout.
+  </p>
+</article>
+
+<!-- Diego -->
+<article class="team-card reveal reveal-d2">
+  <div class="team-avatar" aria-label="Diego Millan Guevarez">
+    <img src="https://media.licdn.com/dms/image/v2/D5603AQHAeKNRCP71Sw/profile-displayphoto-shrink_200_200/profile-displayphoto-shrink_200_200/0/1725915538909?e=1776902400&v=beta&t=tNsnLhVEeYPml-cSXdU-D11dF2dkMvq5mzcgUnRbklw" alt="Diego Millan Guevarez">
+  </div>
+
+  <h3 class="team-name">Diego Millan Guevarez</h3>
+
+  <p class="team-role">
+    Co-Founder &amp; EHS Lead<br>
+    <small style="font-weight:400;color:var(--muted);font-family:var(--font-body);">
+      Environmental Health &amp; Safety
+    </small>
+  </p>
+
+  <p class="team-bio">
+    Diego leads environmental health and safety strategy, bringing operational expertise to construction and field-based federal projects. His focus on safety systems and compliance strengthens every deliverable.
+  </p>
+</article>
+
+<!-- Michael -->
+<article class="team-card reveal reveal-d4">
+  <div class="team-avatar" aria-label="Michael Rodriguez Guevarez">
+    <img 
+      src="https://media.licdn.com/dms/image/v2/D4E03AQERsrxj6aJCyg/profile-displayphoto-scale_100_100/B4EZlfXqYfHoAc-/0/1758241663573?e=1776902400&v=beta&t=yz5f31l0U_dvWHkOPEiv9sJBNhabEu9UDCadog4nsz0"
+      alt="Michael Rodriguez Guevarez"
+    />
+  </div>
+
+  <h3 class="team-name">Michael Rodriguez Guevarez</h3>
+
+  <p class="team-role">
+    Software Engineer &amp; Power Platform Expert<br>
+    <small style="font-weight:400;color:var(--muted);font-family:var(--font-body);">
+      Full-Stack Development &amp; Automation
+    </small>
+  </p>
+
+  <p class="team-bio">
+    Michael builds the automation systems, dashboards, and custom software behind Pale Blue's data-driven approach. From Power Platform to full-stack development, he turns complexity into clarity.
+  </p>
+</article>
         </div>
       </div>
     </section>
