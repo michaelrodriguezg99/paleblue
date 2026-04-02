@@ -1,0 +1,1682 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Pale Blue The Group LLC | Federal Government Contracting</title>
+  <meta name="description" content="Pale Blue The Group LLC helps companies win, manage, and scale federal government contracts through disciplined capture planning, project management, and data-driven systems. Based in Carolina, Puerto Rico." />
+  <meta property="og:title" content="Pale Blue The Group LLC | Federal Government Contracting" />
+  <meta property="og:description" content="Strategic federal growth, engineered from the ground up. Where Mission is Driven by Value." />
+  <meta property="og:type" content="website" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=DM+Sans:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet" />
+
+  <style>
+    /* ============================================================
+       CUSTOM PROPERTIES
+       ============================================================ */
+    :root {
+      --navy:        #0a1628;
+      --blue:        #1e3a5f;
+      --pale:        #5b9bd5;
+      --glow:        #7ec8e3;
+      --white:       #ffffff;
+      --muted:       #b0c8dc;
+      --section-alt: #0f2035;
+      --darkest:     #060e1a;
+
+      --font-display: 'Plus Jakarta Sans', system-ui, sans-serif;
+      --font-body:    'DM Sans', system-ui, sans-serif;
+
+      --max-w:   1280px;
+      --r:       12px;
+      --py:      6rem;
+
+      --ease-out: cubic-bezier(0.25, 0.1, 0.25, 1);
+    }
+
+    /* ============================================================
+       RESET & BASE
+       ============================================================ */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
+    body {
+      font-family: var(--font-body);
+      background: var(--navy);
+      color: var(--white);
+      line-height: 1.65;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+      overflow-x: hidden;
+    }
+    a { text-decoration: none; color: inherit; }
+    button { cursor: pointer; border: none; background: none; font-family: inherit; }
+    ul, ol { list-style: none; }
+    img { display: block; max-width: 100%; }
+    svg { display: block; }
+
+    /* ============================================================
+       LAYOUT
+       ============================================================ */
+    .container {
+      width: 100%;
+      max-width: var(--max-w);
+      margin: 0 auto;
+      padding: 0 1.5rem;
+    }
+    @media (min-width: 768px)  { .container { padding: 0 2.5rem; } }
+    @media (min-width: 1280px) { .container { padding: 0 2rem;   } }
+
+    /* ============================================================
+       TYPOGRAPHY BASE
+       ============================================================ */
+    h1, h2, h3, h4, h5, h6 {
+      font-family: var(--font-display);
+      font-weight: 700;
+      line-height: 1.15;
+      color: var(--white);
+    }
+
+    /* ============================================================
+       ANIMATIONS — HERO (CSS-DRIVEN, ON LOAD)
+       ============================================================ */
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(26px); }
+      to   { opacity: 1; transform: translateY(0);    }
+    }
+
+    @keyframes globeSpin {
+      from { transform: rotate(0deg);   }
+      to   { transform: rotate(360deg); }
+    }
+
+    @keyframes globePulse {
+      0%, 100% { opacity: 0.14; }
+      50%       { opacity: 0.26; }
+    }
+
+    @keyframes scrollBounce {
+      0%, 100% { transform: translateY(0);   opacity: 0.5; }
+      50%       { transform: translateY(9px); opacity: 1;   }
+    }
+
+    @keyframes lineGrow {
+      0%, 100% { opacity: 0.3; height: 28px; }
+      50%       { opacity: 0.8; height: 40px; }
+    }
+
+    /* ============================================================
+       SCROLL-TRIGGER ANIMATIONS (Intersection Observer)
+       ============================================================ */
+    .reveal {
+      opacity: 0;
+      transform: translateY(44px) scale(0.97);
+      transition: opacity 0.7s cubic-bezier(0.22, 1, 0.36, 1),
+                  transform 0.7s cubic-bezier(0.22, 1, 0.36, 1);
+    }
+    .reveal.visible { opacity: 1; transform: translateY(0) scale(1); }
+    .reveal-d1 { transition-delay: 0.12s; }
+    .reveal-d2 { transition-delay: 0.24s; }
+    .reveal-d3 { transition-delay: 0.36s; }
+    .reveal-d4 { transition-delay: 0.48s; }
+
+    /* ============================================================
+       SCROLL PROGRESS BAR
+       ============================================================ */
+    #progress-bar {
+      position: fixed;
+      top: 0;
+      left: 0;
+      height: 2px;
+      width: 0%;
+      background: linear-gradient(90deg, var(--pale), var(--glow));
+      z-index: 300;
+      transition: width 0.1s linear;
+      box-shadow: 0 0 8px rgba(91,155,213,0.6);
+    }
+
+    /* ============================================================
+       SCROLL HINT (hero bottom)
+       ============================================================ */
+    .scroll-hint {
+      position: absolute;
+      bottom: 2.25rem;
+      left: 50%;
+      transform: translateX(-50%);
+      z-index: 10;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0.5rem;
+      cursor: pointer;
+      animation: fadeUp 0.7s ease-out 1.3s both;
+      text-decoration: none;
+    }
+    .scroll-hint-label {
+      font-family: var(--font-display);
+      font-size: 0.6rem;
+      font-weight: 600;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: rgba(176,200,220,0.45);
+    }
+    .scroll-hint-line {
+      width: 1px;
+      background: linear-gradient(to bottom, rgba(91,155,213,0.6), transparent);
+      animation: lineGrow 2.2s ease-in-out infinite;
+    }
+    .scroll-hint-chevron {
+      color: rgba(91,155,213,0.65);
+      animation: scrollBounce 2.2s ease-in-out infinite;
+    }
+
+    /* ============================================================
+       BUTTONS
+       ============================================================ */
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.45rem;
+      padding: 0.8125rem 1.75rem;
+      border-radius: 8px;
+      font-family: var(--font-display);
+      font-size: 0.875rem;
+      font-weight: 600;
+      letter-spacing: 0.01em;
+      transition: background 0.25s ease, border-color 0.25s ease,
+                  transform 0.25s ease, box-shadow 0.25s ease;
+      white-space: nowrap;
+      cursor: pointer;
+    }
+    .btn-primary {
+      background: var(--pale);
+      color: var(--white);
+      border: 1.5px solid var(--pale);
+    }
+    .btn-primary:hover {
+      background: var(--glow);
+      border-color: var(--glow);
+      transform: translateY(-2px);
+      box-shadow: 0 8px 28px rgba(91,155,213,0.32);
+    }
+    .btn-outline {
+      background: transparent;
+      color: var(--white);
+      border: 1.5px solid rgba(91,155,213,0.4);
+    }
+    .btn-outline:hover {
+      background: rgba(91,155,213,0.07);
+      border-color: rgba(91,155,213,0.65);
+      transform: translateY(-2px);
+    }
+
+    /* ============================================================
+       SECTION SHARED
+       ============================================================ */
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-family: var(--font-display);
+      font-size: 0.72rem;
+      font-weight: 600;
+      letter-spacing: 0.13em;
+      text-transform: uppercase;
+      color: var(--pale);
+      margin-bottom: 0.875rem;
+    }
+    .eyebrow::before {
+      content: '';
+      display: block;
+      width: 18px;
+      height: 2px;
+      background: linear-gradient(90deg, var(--pale), var(--glow));
+      border-radius: 1px;
+      flex-shrink: 0;
+    }
+    .section-title {
+      font-size: clamp(1.75rem, 3.5vw, 2.5rem);
+      font-weight: 700;
+      letter-spacing: -0.015em;
+    }
+    .section-sub {
+      margin-top: 1rem;
+      font-size: 1.0625rem;
+      line-height: 1.8;
+      color: var(--muted);
+      max-width: 580px;
+    }
+    .section-header { margin-bottom: 3.5rem; }
+    .section-header.centered { text-align: center; }
+    .section-header.centered .section-sub { margin-left: auto; margin-right: auto; }
+
+    /* ============================================================
+       NAVBAR
+       ============================================================ */
+    #navbar {
+      position: fixed;
+      inset: 0 0 auto;
+      z-index: 100;
+      background: transparent;
+      transition: background 0.3s ease, box-shadow 0.3s ease, backdrop-filter 0.3s ease;
+    }
+    #navbar.scrolled {
+      background: rgba(10,22,40,0.97);
+      box-shadow: 0 1px 0 rgba(91,155,213,0.1);
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+    }
+    .nav-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 64px;
+    }
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+    }
+    .logo-globe-sm {
+      flex-shrink: 0;
+    }
+    .logo-text {
+      display: flex;
+      flex-direction: column;
+      line-height: 1;
+    }
+    .logo-main {
+      font-family: var(--font-display);
+      font-size: 1.0625rem;
+      font-weight: 800;
+      letter-spacing: 0.08em;
+      color: var(--white);
+    }
+    .logo-sub {
+      font-family: var(--font-display);
+      font-size: 0.7rem;
+      font-weight: 400;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-top: 3px;
+    }
+    .nav-links {
+      display: none;
+      align-items: center;
+      gap: 0.25rem;
+    }
+    @media (min-width: 768px) { .nav-links { display: flex; } }
+    .nav-links a {
+      padding: 0.5rem 0.875rem;
+      font-family: var(--font-body);
+      font-size: 0.875rem;
+      font-weight: 500;
+      color: var(--muted);
+      border-radius: 7px;
+      transition: color 0.2s ease, background 0.2s ease;
+    }
+    .nav-links a:hover { color: var(--white); background: rgba(255,255,255,0.05); }
+    .nav-cta {
+      margin-left: 0.75rem;
+      padding: 0.5rem 1.25rem !important;
+      background: var(--pale) !important;
+      color: var(--white) !important;
+      border-radius: 8px;
+      font-weight: 600 !important;
+      transition: background 0.2s ease, transform 0.2s ease, box-shadow 0.2s ease !important;
+    }
+    .nav-cta:hover {
+      background: var(--glow) !important;
+      transform: translateY(-1px) !important;
+      box-shadow: 0 4px 16px rgba(91,155,213,0.3) !important;
+    }
+    .hamburger {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 40px;
+      height: 40px;
+      color: var(--muted);
+      border-radius: 8px;
+      transition: background 0.2s ease, color 0.2s ease;
+    }
+    .hamburger:hover { background: rgba(255,255,255,0.06); color: var(--white); }
+    @media (min-width: 768px) { .hamburger { display: none; } }
+
+    /* ============================================================
+       MOBILE MENU
+       ============================================================ */
+    #mobile-menu {
+      position: fixed;
+      inset: 0;
+      z-index: 200;
+      background: var(--navy);
+      display: flex;
+      flex-direction: column;
+      padding: 1.25rem 1.5rem 2.5rem;
+      transform: translateX(100%);
+      transition: transform 0.32s var(--ease-out);
+    }
+    #mobile-menu.open { transform: translateX(0); }
+    .mob-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 64px;
+      margin-bottom: 2rem;
+    }
+    .mob-close {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 40px;
+      height: 40px;
+      color: var(--muted);
+      border-radius: 8px;
+      transition: color 0.2s ease;
+    }
+    .mob-close:hover { color: var(--white); }
+    .mob-nav { display: flex; flex-direction: column; gap: 0.375rem; }
+    .mob-nav a {
+      display: block;
+      padding: 1rem 1.25rem;
+      font-family: var(--font-display);
+      font-size: 1.125rem;
+      font-weight: 600;
+      color: var(--muted);
+      border-radius: 10px;
+      transition: background 0.2s ease, color 0.2s ease;
+    }
+    .mob-nav a:hover { background: rgba(255,255,255,0.05); color: var(--white); }
+    .mob-footer {
+      margin-top: auto;
+      padding-top: 1.75rem;
+      border-top: 1px solid rgba(255,255,255,0.07);
+    }
+    .mob-footer p { font-size: 0.8125rem; color: var(--muted); }
+
+    /* ============================================================
+       HERO
+       ============================================================ */
+    #hero {
+      position: relative;
+      min-height: 100vh;
+      background: linear-gradient(135deg, var(--navy) 0%, #0d1f3c 55%, var(--blue) 100%);
+      display: flex;
+      align-items: center;
+      overflow: hidden;
+    }
+    /* Dot grid overlay */
+    #hero::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background-image: radial-gradient(circle, rgba(91,155,213,0.28) 1px, transparent 1px);
+      background-size: 28px 28px;
+      pointer-events: none;
+    }
+    /* Bottom fade */
+    #hero::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      height: 7rem;
+      background: linear-gradient(to top, var(--navy), transparent);
+      pointer-events: none;
+    }
+    .hero-globe-wrap {
+      position: absolute;
+      right: -6%;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 52vw;
+      max-width: 660px;
+      aspect-ratio: 1 / 1;
+      pointer-events: none;
+      animation: globePulse 9s ease-in-out infinite;
+    }
+    .hero-globe-wrap svg {
+      width: 100%;
+      height: 100%;
+      animation: globeSpin 100s linear infinite;
+    }
+    @media (max-width: 767px) {
+      .hero-globe-wrap {
+        right: -25%;
+        top: 20%;
+        transform: none;
+        width: 95vw;
+        opacity: 0.45;
+        animation: globePulse 9s ease-in-out infinite;
+      }
+      .hero-globe-wrap svg { animation: none; }
+    }
+    .hero-inner {
+      position: relative;
+      z-index: 2;
+      padding-top: 8.5rem;
+      padding-bottom: 5rem;
+    }
+    @media (min-width: 768px) { .hero-inner { padding-top: 7.5rem; padding-bottom: 5rem; } }
+    .hero-content { max-width: 700px; }
+    .hero-eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.375rem 1.125rem;
+      border: 1px solid rgba(91,155,213,0.28);
+      background: rgba(91,155,213,0.06);
+      border-radius: 100px;
+      font-family: var(--font-display);
+      font-size: 0.72rem;
+      font-weight: 600;
+      letter-spacing: 0.11em;
+      text-transform: uppercase;
+      color: var(--pale);
+      margin-bottom: 1.75rem;
+      animation: fadeUp 0.7s ease-out 0s both;
+    }
+    .hero-title {
+      font-size: clamp(2.25rem, 5vw, 3.75rem);
+      font-weight: 800;
+      line-height: 1.08;
+      letter-spacing: -0.025em;
+      margin-bottom: 1.5rem;
+      animation: fadeUp 0.7s ease-out 0.18s both;
+    }
+    .hero-title .gradient-text {
+      background: linear-gradient(135deg, var(--white) 20%, var(--glow) 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+    .hero-sub {
+      font-size: 1.0625rem;
+      line-height: 1.75;
+      color: var(--muted);
+      max-width: 570px;
+      margin-bottom: 2.5rem;
+      animation: fadeUp 0.7s ease-out 0.36s both;
+    }
+    .hero-ctas {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem;
+      animation: fadeUp 0.7s ease-out 0.54s both;
+    }
+
+    /* ============================================================
+       TRUST BAR
+       ============================================================ */
+    #trust {
+      background: rgba(13,31,60,0.85);
+      border-top: 1px solid rgba(255,255,255,0.05);
+      border-bottom: 1px solid rgba(255,255,255,0.05);
+      padding: 2.25rem 0;
+    }
+    .trust-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 1.5rem;
+    }
+    @media (min-width: 640px) { .trust-grid { grid-template-columns: repeat(4, 1fr); } }
+    .trust-item {
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      padding: 0.5rem 1rem;
+    }
+    @media (min-width: 640px) {
+      .trust-item:not(:last-child)::after {
+        content: '';
+        position: absolute;
+        right: 0;
+        top: 50%;
+        transform: translateY(-50%);
+        width: 1px;
+        height: 2rem;
+        background: rgba(255,255,255,0.1);
+      }
+    }
+    .trust-value {
+      font-family: var(--font-display);
+      font-size: 1rem;
+      font-weight: 700;
+      color: var(--white);
+      margin-bottom: 0.2rem;
+    }
+    .trust-label {
+      font-size: 0.7rem;
+      font-weight: 500;
+      color: var(--muted);
+      letter-spacing: 0.09em;
+      text-transform: uppercase;
+    }
+
+    /* ============================================================
+       SERVICES
+       ============================================================ */
+    #services {
+      padding: var(--py) 0;
+      background: var(--navy);
+    }
+    .services-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 1.25rem;
+    }
+    @media (min-width: 768px) {
+      .services-grid { grid-template-columns: repeat(2, 1fr); }
+    }
+    .card {
+      background: var(--blue);
+      border: 1px solid rgba(255,255,255,0.06);
+      border-top: 1px solid rgba(91,155,213,0.1);
+      border-radius: var(--r);
+      padding: 2.25rem;
+      transition: transform 0.35s cubic-bezier(0.22,1,0.36,1),
+                  box-shadow 0.35s ease,
+                  border-color 0.35s ease;
+      position: relative;
+      overflow: hidden;
+    }
+    .card::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(135deg, rgba(91,155,213,0.04) 0%, transparent 60%);
+      opacity: 0;
+      transition: opacity 0.35s ease;
+      pointer-events: none;
+    }
+    .card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 12px 48px rgba(10,22,40,0.6), 0 0 0 1px rgba(91,155,213,0.25);
+      border-color: rgba(91,155,213,0.3);
+      border-top-color: rgba(91,155,213,0.5);
+    }
+    .card:hover::after { opacity: 1; }
+    .card-num {
+      font-family: var(--font-display);
+      font-size: 0.65rem;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      color: rgba(91,155,213,0.35);
+      margin-bottom: 1.25rem;
+    }
+    .card-icon {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 48px;
+      height: 48px;
+      border-radius: 10px;
+      background: rgba(91,155,213,0.1);
+      border: 1px solid rgba(91,155,213,0.18);
+      color: var(--pale);
+      margin-bottom: 1.5rem;
+    }
+    .card-icon svg {
+      width: 22px;
+      height: 22px;
+      stroke: currentColor;
+      stroke-width: 1.5;
+      fill: none;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+    }
+    .card-title {
+      font-family: var(--font-display);
+      font-size: 1.0625rem;
+      font-weight: 700;
+      color: var(--white);
+      margin-bottom: 0.75rem;
+    }
+    .card-desc {
+      font-size: 0.9375rem;
+      line-height: 1.74;
+      color: var(--muted);
+      margin-bottom: 1.375rem;
+    }
+    .deliverables-heading {
+      font-family: var(--font-display);
+      font-size: 0.67rem;
+      font-weight: 600;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--pale);
+      margin-bottom: 0.625rem;
+    }
+    .deliverables-list {
+      display: flex;
+      flex-direction: column;
+      gap: 0.45rem;
+    }
+    .del-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 0.6rem;
+      font-size: 0.875rem;
+      color: rgba(176,200,220,0.92);
+      line-height: 1.5;
+    }
+    .del-dot {
+      flex-shrink: 0;
+      width: 5px;
+      height: 5px;
+      border-radius: 50%;
+      background: var(--pale);
+      opacity: 0.7;
+      margin-top: 0.45rem;
+    }
+
+    /* ============================================================
+       WHY PALE BLUE
+       ============================================================ */
+    #why {
+      padding: var(--py) 0;
+      background: var(--section-alt);
+      position: relative;
+    }
+    #why::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background-image: radial-gradient(circle, rgba(91,155,213,0.07) 1px, transparent 1px);
+      background-size: 30px 30px;
+      pointer-events: none;
+    }
+    .why-inner {
+      position: relative;
+      z-index: 1;
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 3rem;
+    }
+    @media (min-width: 1024px) {
+      .why-inner {
+        grid-template-columns: 1fr 1fr;
+        gap: 5rem;
+        align-items: center;
+      }
+    }
+    .why-body {
+      font-size: 1.0625rem;
+      line-height: 1.82;
+      color: var(--muted);
+      margin-top: 1.25rem;
+    }
+    .value-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1rem;
+    }
+    .value-point {
+      background: rgba(30,58,95,0.5);
+      border: 1px solid rgba(255,255,255,0.06);
+      border-radius: 10px;
+      padding: 1.25rem;
+      display: flex;
+      align-items: flex-start;
+      gap: 0.875rem;
+      transition: border-color 0.3s ease;
+    }
+    .value-point:hover { border-color: rgba(91,155,213,0.22); }
+    .value-icon {
+      flex-shrink: 0;
+      width: 34px;
+      height: 34px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: rgba(91,155,213,0.1);
+      border-radius: 8px;
+      color: var(--pale);
+    }
+    .value-icon svg {
+      width: 16px;
+      height: 16px;
+      stroke: currentColor;
+      stroke-width: 2;
+      fill: none;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+    }
+    .value-text {
+      font-family: var(--font-display);
+      font-size: 0.875rem;
+      font-weight: 600;
+      color: var(--white);
+      line-height: 1.4;
+      padding-top: 0.2rem;
+    }
+
+    /* ============================================================
+       TEAM
+       ============================================================ */
+    #team {
+      padding: var(--py) 0;
+      background: var(--navy);
+    }
+    .team-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 1.25rem;
+    }
+    @media (min-width: 640px)  { .team-grid { grid-template-columns: repeat(2, 1fr); } }
+    @media (min-width: 1024px) { .team-grid { grid-template-columns: repeat(3, 1fr); } }
+    .team-card {
+      background: var(--blue);
+      border: 1px solid rgba(255,255,255,0.05);
+      border-radius: var(--r);
+      padding: 2.25rem 2rem;
+      text-align: center;
+      transition: border-color 0.3s ease, box-shadow 0.3s ease, transform 0.3s ease;
+    }
+    .team-card:hover {
+      border-color: rgba(91,155,213,0.18);
+      box-shadow: 0 4px 32px rgba(10,22,40,0.55);
+      transform: translateY(-3px);
+    }
+    .team-avatar {
+      width: 88px;
+      height: 88px;
+      border-radius: 50%;
+      background: var(--navy);
+      border: 2px solid rgba(91,155,213,0.3);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 1.375rem;
+      box-shadow: 0 0 0 4px rgba(91,155,213,0.06), 0 0 20px rgba(91,155,213,0.1);
+      transition: box-shadow 0.3s ease, border-color 0.3s ease;
+    }
+    .team-card:hover .team-avatar {
+      border-color: rgba(91,155,213,0.55);
+      box-shadow: 0 0 0 5px rgba(91,155,213,0.1), 0 0 28px rgba(91,155,213,0.2);
+    }
+    .team-initials {
+      font-family: var(--font-display);
+      font-size: 1.5rem;
+      font-weight: 700;
+      color: var(--pale);
+    }
+    .team-name {
+      font-family: var(--font-display);
+      font-size: 1rem;
+      font-weight: 700;
+      color: var(--white);
+      margin-bottom: 0.25rem;
+    }
+    .team-role {
+      font-family: var(--font-display);
+      font-size: 0.8125rem;
+      font-weight: 600;
+      color: var(--pale);
+      margin-bottom: 0.9375rem;
+      line-height: 1.4;
+    }
+    .team-bio {
+      font-size: 0.9375rem;
+      line-height: 1.72;
+      color: var(--muted);
+    }
+
+    /* ============================================================
+       CTA BANNER
+       ============================================================ */
+    #cta {
+      padding: var(--py) 0;
+      background: var(--navy);
+    }
+    .cta-card {
+      position: relative;
+      overflow: hidden;
+      background: var(--blue);
+      border: 1px solid rgba(91,155,213,0.15);
+      border-top: 2px solid var(--pale);
+      border-radius: var(--r);
+      padding: 4rem 2.5rem;
+      text-align: center;
+    }
+    /* Radial glow backdrop */
+    .cta-card::before {
+      content: '';
+      position: absolute;
+      top: -120px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 500px;
+      height: 500px;
+      background: radial-gradient(circle, rgba(91,155,213,0.1) 0%, transparent 65%);
+      pointer-events: none;
+    }
+    .cta-card::after {
+      content: '';
+      position: absolute;
+      bottom: -80px;
+      right: -80px;
+      width: 300px;
+      height: 300px;
+      background: radial-gradient(circle, rgba(126,200,227,0.06) 0%, transparent 70%);
+      pointer-events: none;
+    }
+    .cta-title {
+      position: relative;
+      z-index: 1;
+      font-size: clamp(1.5rem, 3vw, 2.125rem);
+      font-weight: 700;
+      letter-spacing: -0.01em;
+      max-width: 640px;
+      margin: 0 auto 2rem;
+      line-height: 1.2;
+    }
+    .cta-btn-wrap {
+      position: relative;
+      z-index: 1;
+    }
+
+    /* ============================================================
+       CONTACT
+       ============================================================ */
+    #contact {
+      padding: var(--py) 0;
+      background: var(--section-alt);
+      position: relative;
+    }
+    /* Pale blue divider at top */
+    #contact::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 1px;
+      background: linear-gradient(90deg, transparent 0%, var(--pale) 50%, transparent 100%);
+      opacity: 0.45;
+    }
+    .contact-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 1rem;
+      max-width: 720px;
+      margin: 0 auto;
+    }
+    @media (max-width: 500px) { .contact-grid { grid-template-columns: 1fr; } }
+    .contact-item {
+      display: flex;
+      align-items: center;
+      gap: 1.125rem;
+      padding: 1.375rem 1.5rem;
+      background: var(--blue);
+      border: 1px solid rgba(255,255,255,0.06);
+      border-radius: var(--r);
+      color: inherit;
+      transition: border-color 0.3s ease, background 0.3s ease, transform 0.3s ease;
+    }
+    .contact-item:hover {
+      border-color: rgba(91,155,213,0.28);
+      background: rgba(30,58,95,0.85);
+      transform: translateY(-2px);
+    }
+    .contact-icon-wrap {
+      flex-shrink: 0;
+      width: 46px;
+      height: 46px;
+      border-radius: 10px;
+      background: rgba(91,155,213,0.1);
+      border: 1px solid rgba(91,155,213,0.18);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--pale);
+    }
+    .contact-icon-wrap svg {
+      width: 18px;
+      height: 18px;
+      stroke: currentColor;
+      stroke-width: 1.5;
+      fill: none;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+    }
+    .contact-label {
+      display: block;
+      font-size: 0.68rem;
+      font-weight: 600;
+      letter-spacing: 0.11em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-bottom: 0.25rem;
+    }
+    .contact-value {
+      display: block;
+      font-family: var(--font-display);
+      font-size: 0.875rem;
+      font-weight: 600;
+      color: var(--white);
+    }
+    .contact-tagline {
+      text-align: center;
+      margin-top: 2.75rem;
+      font-family: var(--font-display);
+      font-size: 0.875rem;
+      font-weight: 600;
+      color: var(--pale);
+      letter-spacing: 0.04em;
+      opacity: 0.85;
+    }
+
+    /* ============================================================
+       FOOTER
+       ============================================================ */
+    footer {
+      background: var(--darkest);
+      border-top: 1px solid rgba(255,255,255,0.05);
+      padding: 2.75rem 0 2rem;
+    }
+    .footer-top {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 1.75rem;
+      text-align: center;
+      padding-bottom: 2rem;
+      border-bottom: 1px solid rgba(255,255,255,0.05);
+    }
+    @media (min-width: 768px) {
+      .footer-top {
+        flex-direction: row;
+        justify-content: space-between;
+        text-align: left;
+      }
+    }
+    .footer-tagline {
+      font-size: 0.8125rem;
+      color: rgba(148,163,184,0.55);
+      margin-top: 0.35rem;
+    }
+    .footer-nav {
+      display: flex;
+      align-items: center;
+      gap: 2rem;
+    }
+    .footer-nav a {
+      font-size: 0.8125rem;
+      color: var(--muted);
+      transition: color 0.2s ease;
+    }
+    .footer-nav a:hover { color: var(--white); }
+    .footer-bottom {
+      padding-top: 1.5rem;
+      text-align: center;
+    }
+    .footer-copy {
+      font-size: 0.75rem;
+      color: rgba(148,163,184,0.38);
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- Scroll progress indicator -->
+  <div id="progress-bar" aria-hidden="true"></div>
+
+  <!-- ============================================================
+       NAVBAR
+       ============================================================ -->
+  <header id="navbar">
+    <div class="container nav-inner">
+      <!-- Logo -->
+      <a href="#hero" class="logo" aria-label="Pale Blue The Group LLC — Home">
+        <!-- Small globe SVG -->
+        <svg class="logo-globe-sm" width="38" height="38" viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+          <circle cx="15" cy="15" r="13.5" stroke="rgba(91,155,213,0.35)" stroke-width="0.5" fill="none"/>
+          <ellipse cx="15" cy="15" rx="13.5" ry="4.5" stroke="rgba(91,155,213,0.2)" stroke-width="0.5" fill="none"/>
+          <ellipse cx="15" cy="15" rx="4.5" ry="13.5" stroke="rgba(91,155,213,0.2)" stroke-width="0.5" fill="none"/>
+          <circle cx="15" cy="7"  r="1.4" fill="#5b9bd5" opacity="0.8"/>
+          <circle cx="21" cy="10" r="1.2" fill="#5b9bd5" opacity="0.7"/>
+          <circle cx="23" cy="15" r="1.4" fill="#5b9bd5" opacity="0.75"/>
+          <circle cx="21" cy="20" r="1.2" fill="#5b9bd5" opacity="0.7"/>
+          <circle cx="15" cy="23" r="1.4" fill="#5b9bd5" opacity="0.8"/>
+          <circle cx="9"  cy="20" r="1.2" fill="#5b9bd5" opacity="0.7"/>
+          <circle cx="7"  cy="15" r="1.4" fill="#5b9bd5" opacity="0.75"/>
+          <circle cx="9"  cy="10" r="1.2" fill="#5b9bd5" opacity="0.7"/>
+          <circle cx="15" cy="15" r="1.6" fill="#5b9bd5" opacity="0.9"/>
+          <circle cx="19" cy="12" r="1.0" fill="#5b9bd5" opacity="0.6"/>
+          <circle cx="19" cy="18" r="1.0" fill="#5b9bd5" opacity="0.6"/>
+          <circle cx="11" cy="18" r="1.0" fill="#5b9bd5" opacity="0.6"/>
+          <circle cx="11" cy="12" r="1.0" fill="#5b9bd5" opacity="0.6"/>
+        </svg>
+        <div class="logo-text">
+          <span class="logo-main">PALE BLUE</span>
+          <span class="logo-sub">THE GROUP, LLC</span>
+        </div>
+      </a>
+
+      <!-- Desktop nav -->
+      <nav class="nav-links" aria-label="Primary navigation">
+        <a href="#hero">Home</a>
+        <a href="#services">Services</a>
+        <a href="#team">Team</a>
+        <a href="#contact" class="nav-cta">Contact</a>
+      </nav>
+
+      <!-- Hamburger -->
+      <button class="hamburger" id="hamburger" aria-label="Open mobile menu" aria-expanded="false" aria-controls="mobile-menu">
+        <svg width="20" height="20" viewBox="0 0 20 20" fill="none" aria-hidden="true">
+          <line x1="2" y1="5"  x2="18" y2="5"  stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+          <line x1="2" y1="10" x2="18" y2="10" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+          <line x1="2" y1="15" x2="14" y2="15" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+        </svg>
+      </button>
+    </div>
+  </header>
+
+  <!-- ============================================================
+       MOBILE MENU
+       ============================================================ -->
+  <div id="mobile-menu" role="dialog" aria-modal="true" aria-label="Mobile navigation">
+    <div class="mob-header">
+      <a href="#hero" class="logo" aria-label="Home">
+        <div class="logo-text">
+          <span class="logo-main">PALE BLUE</span>
+          <span class="logo-sub">THE GROUP, LLC</span>
+        </div>
+      </a>
+      <button class="mob-close" id="mob-close" aria-label="Close mobile menu">
+        <svg width="20" height="20" viewBox="0 0 20 20" fill="none" aria-hidden="true">
+          <line x1="4" y1="4" x2="16" y2="16" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+          <line x1="16" y1="4" x2="4"  y2="16" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+        </svg>
+      </button>
+    </div>
+    <nav class="mob-nav" aria-label="Mobile navigation">
+      <a href="#hero">Home</a>
+      <a href="#services">Services</a>
+      <a href="#why">Why Pale Blue</a>
+      <a href="#team">Team</a>
+      <a href="#contact">Contact</a>
+    </nav>
+    <div class="mob-footer">
+      <p>1 (787) 428-1417 &nbsp;·&nbsp; Carolina, Puerto Rico</p>
+    </div>
+  </div>
+
+  <!-- ============================================================
+       MAIN CONTENT
+       ============================================================ -->
+  <main>
+
+    <!-- ===========================================================
+         1. HERO
+         =========================================================== -->
+    <section id="hero" aria-labelledby="hero-title">
+      <!-- Globe (JS fills the SVG) -->
+      <div class="hero-globe-wrap" aria-hidden="true">
+        <svg id="globe-svg" viewBox="0 0 500 500" xmlns="http://www.w3.org/2000/svg"></svg>
+      </div>
+
+      <div class="container hero-inner">
+        <div class="hero-content">
+          <div class="hero-eyebrow">Federal Government Contracting</div>
+          <h1 class="hero-title" id="hero-title">
+            Strategic Federal Growth.<br>
+            <span class="gradient-text">Engineered from the Ground Up.</span>
+          </h1>
+          <p class="hero-sub">
+            We help companies win, manage, and scale federal government contracts through disciplined capture planning, project management, and data-driven systems.
+          </p>
+          <div class="hero-ctas">
+            <a href="#services" class="btn btn-primary">
+              Explore Our Services
+              <svg width="15" height="15" viewBox="0 0 15 15" fill="none" aria-hidden="true" style="stroke:currentColor;stroke-width:1.5;stroke-linecap:round;stroke-linejoin:round"><path d="M2.5 7.5h10M8.5 3.5l4 4-4 4"/></svg>
+            </a>
+            <a href="#contact" class="btn btn-outline">Get in Touch</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Scroll hint -->
+      <a href="#trust" class="scroll-hint" aria-label="Scroll down">
+        <span class="scroll-hint-label">Scroll to explore</span>
+        <span class="scroll-hint-line" aria-hidden="true"></span>
+        <span class="scroll-hint-chevron" aria-hidden="true">
+          <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 6l5 5 5-5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </span>
+      </a>
+    </section>
+
+    <!-- ===========================================================
+         2. TRUST BAR
+         =========================================================== -->
+    <section id="trust" aria-label="Company highlights">
+      <div class="container">
+        <div class="trust-grid reveal">
+          <div class="trust-item">
+            <span class="trust-value">Founded 2021</span>
+            <span class="trust-label">Established</span>
+          </div>
+          <div class="trust-item">
+            <span class="trust-value">Carolina, PR</span>
+            <span class="trust-label">Headquarters</span>
+          </div>
+          <div class="trust-item">
+            <span class="trust-value">Federal Focus</span>
+            <span class="trust-label">Specialization</span>
+          </div>
+          <div class="trust-item">
+            <span class="trust-value">End-to-End</span>
+            <span class="trust-label">Support Model</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===========================================================
+         3. SERVICES
+         =========================================================== -->
+    <section id="services" aria-labelledby="services-title">
+      <div class="container">
+        <div class="section-header reveal">
+          <span class="eyebrow">What We Do</span>
+          <h2 class="section-title" id="services-title">Services Built for Federal Success</h2>
+          <p class="section-sub">From opportunity identification through project closeout — we provide the strategy, structure, and systems your team needs.</p>
+        </div>
+
+        <div class="services-grid">
+          <!-- Card 1 -->
+          <article class="card reveal">
+            <div class="card-num" aria-hidden="true">01</div>
+            <div class="card-icon" aria-hidden="true">
+              <!-- Target icon -->
+              <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2" fill="currentColor" stroke="none"/></svg>
+            </div>
+            <h3 class="card-title">Federal Capture Planning</h3>
+            <p class="card-desc">We help you identify, qualify, and position for the right federal opportunities before the RFP drops. Our capture process builds relationships with Contracting Officers, maps the competitive landscape, and creates win strategies grounded in data.</p>
+            <div class="deliverables-heading">Key Deliverables</div>
+            <ul class="deliverables-list" aria-label="Deliverables for Federal Capture Planning">
+              <li class="del-item"><span class="del-dot" aria-hidden="true"></span>Opportunity Research &amp; Pipeline</li>
+              <li class="del-item"><span class="del-dot" aria-hidden="true"></span>Capture Strategy &amp; Win Themes</li>
+              <li class="del-item"><span class="del-dot" aria-hidden="true"></span>CO/COR Engagement Planning</li>
+              <li class="del-item"><span class="del-dot" aria-hidden="true"></span>Competitive Intelligence</li>
+            </ul>
+          </article>
+
+          <!-- Card 2 -->
+          <article class="card reveal reveal-d1">
+            <div class="card-num" aria-hidden="true">02</div>
+            <div class="card-icon" aria-hidden="true">
+              <!-- Document icon -->
+              <svg viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><line x1="10" y1="9" x2="8" y2="9"/></svg>
+            </div>
+            <h3 class="card-title">Proposal Strategy &amp; Support</h3>
+            <p class="card-desc">A winning proposal is built on clarity, compliance, and a compelling narrative. We support your proposal process from outline through final review — ensuring your response speaks the evaluator's language.</p>
+            <div class="deliverables-heading">Key Deliverables</div>
+            <ul class="deliverables-list" aria-label="Deliverables for Proposal Strategy">
+              <li class="del-item"><span class="del-dot" aria-hidden="true"></span>Compliance Matrices</li>
+              <li class="del-item"><span class="del-dot" aria-hidden="true"></span>Writing &amp; Red Team Reviews</li>
+              <li class="del-item"><span class="del-dot" aria-hidden="true"></span>Past Performance Narratives</li>
+              <li class="del-item"><span class="del-dot" aria-hidden="true"></span>Pricing Strategy Input</li>
+            </ul>
+          </article>
+
+          <!-- Card 3 -->
+          <article class="card reveal">
+            <div class="card-num" aria-hidden="true">03</div>
+            <div class="card-icon" aria-hidden="true">
+              <!-- Building/construction icon -->
+              <svg viewBox="0 0 24 24"><rect x="2" y="7" width="9" height="15"/><rect x="11" y="2" width="11" height="20"/><line x1="15" y1="2" x2="15" y2="22"/><line x1="11" y1="11" x2="22" y2="11"/><line x1="11" y1="16" x2="22" y2="16"/></svg>
+            </div>
+            <h3 class="card-title">Project &amp; Construction Management</h3>
+            <p class="card-desc">With roots in field-based construction, we bring hands-on execution discipline to every project. Our PMP-certified team ensures deliverables stay on track, risks are managed, and CPARS ratings reflect excellence.</p>
+            <div class="deliverables-heading">Key Deliverables</div>
+            <ul class="deliverables-list" aria-label="Deliverables for Project Management">
+              <li class="del-item"><span class="del-dot" aria-hidden="true"></span>Project Planning &amp; Scheduling</li>
+              <li class="del-item"><span class="del-dot" aria-hidden="true"></span>Risk &amp; Issue Management</li>
+              <li class="del-item"><span class="del-dot" aria-hidden="true"></span>Deliverable Tracking &amp; QA</li>
+              <li class="del-item"><span class="del-dot" aria-hidden="true"></span>Post-Award Performance</li>
+            </ul>
+          </article>
+
+          <!-- Card 4 -->
+          <article class="card reveal reveal-d1">
+            <div class="card-num" aria-hidden="true">04</div>
+            <div class="card-icon" aria-hidden="true">
+              <!-- CPU/circuit icon -->
+              <svg viewBox="0 0 24 24"><rect x="4" y="4" width="16" height="16" rx="2"/><rect x="9" y="9" width="6" height="6"/><line x1="9"  y1="1"  x2="9"  y2="4"/><line x1="15" y1="1"  x2="15" y2="4"/><line x1="9"  y1="20" x2="9"  y2="23"/><line x1="15" y1="20" x2="15" y2="23"/><line x1="20" y1="9"  x2="23" y2="9"/><line x1="20" y1="14" x2="23" y2="14"/><line x1="1"  y1="9"  x2="4"  y2="9"/><line x1="1"  y1="14" x2="4"  y2="14"/></svg>
+            </div>
+            <h3 class="card-title">IT, Automation &amp; Marketing Systems</h3>
+            <p class="card-desc">We design and implement the digital infrastructure that makes federal growth scalable — from CRM automation and pipeline dashboards to marketing systems that build visibility where it matters.</p>
+            <div class="deliverables-heading">Key Deliverables</div>
+            <ul class="deliverables-list" aria-label="Deliverables for IT and Automation">
+              <li class="del-item"><span class="del-dot" aria-hidden="true"></span>CRM &amp; Pipeline Automation</li>
+              <li class="del-item"><span class="del-dot" aria-hidden="true"></span>Federal Marketing &amp; Branding</li>
+              <li class="del-item"><span class="del-dot" aria-hidden="true"></span>Power Platform Solutions</li>
+              <li class="del-item"><span class="del-dot" aria-hidden="true"></span>Data Dashboards &amp; Reporting</li>
+            </ul>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===========================================================
+         4. WHY PALE BLUE
+         =========================================================== -->
+    <section id="why" aria-labelledby="why-title">
+      <div class="container">
+        <div class="why-inner">
+          <!-- Left: text -->
+          <div>
+            <div class="reveal">
+              <span class="eyebrow">Why Pale Blue</span>
+              <h2 class="section-title" id="why-title">Built for Federal.<br>Driven by Value.</h2>
+              <p class="why-body">
+                We don't just help you win contracts — we build the sustainable systems behind long-term federal growth. From capture to closeout, every engagement is structured for clarity, compliance, and performance.
+              </p>
+            </div>
+          </div>
+
+          <!-- Right: value grid -->
+          <div class="value-grid reveal reveal-d2">
+            <div class="value-point">
+              <div class="value-icon" aria-hidden="true">
+                <!-- Shield check -->
+                <svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><polyline points="9 12 11 14 15 10"/></svg>
+              </div>
+              <span class="value-text">Capture-to-Closeout Discipline</span>
+            </div>
+            <div class="value-point">
+              <div class="value-icon" aria-hidden="true">
+                <!-- Hard hat / layers -->
+                <svg viewBox="0 0 24 24"><polygon points="12 2 2 7 12 12 22 7 12 2"/><polyline points="2 17 12 22 22 17"/><polyline points="2 12 12 17 22 12"/></svg>
+              </div>
+              <span class="value-text">Construction + Tech Expertise</span>
+            </div>
+            <div class="value-point">
+              <div class="value-icon" aria-hidden="true">
+                <!-- Star -->
+                <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+              </div>
+              <span class="value-text">CPARS-Ready Execution</span>
+            </div>
+            <div class="value-point">
+              <div class="value-icon" aria-hidden="true">
+                <!-- Trending up -->
+                <svg viewBox="0 0 24 24"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/><polyline points="17 6 23 6 23 12"/></svg>
+              </div>
+              <span class="value-text">Systems That Scale</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===========================================================
+         5. TEAM
+         =========================================================== -->
+    <section id="team" aria-labelledby="team-title">
+      <div class="container">
+        <div class="section-header centered reveal">
+          <span class="eyebrow">Our Team</span>
+          <h2 class="section-title" id="team-title">The Team Behind the Mission</h2>
+          <p class="section-sub" style="margin-left:auto;margin-right:auto;">A multidisciplinary team combining construction management, certified project leadership, and engineering to serve the full federal engagement lifecycle.</p>
+        </div>
+
+        <div class="team-grid">
+          <!-- Edgar -->
+          <article class="team-card reveal">
+            <div class="team-avatar" aria-label="Edgar Millan Guevarez">
+              <span class="team-initials" aria-hidden="true">EM</span>
+            </div>
+            <h3 class="team-name">Edgar Millan Guevarez</h3>
+            <p class="team-role">Founder &amp; Federal Programs Lead<br><small style="font-weight:400;color:var(--muted);font-family:var(--font-body);">PMP | Federal Construction &amp; Document Control</small></p>
+            <p class="team-bio">PMP-certified project leader with deep experience in federal construction and document control. Edgar ensures every engagement is executed with compliance, clarity, and performance from capture through closeout.</p>
+          </article>
+
+          <!-- Diego -->
+          <article class="team-card reveal reveal-d2">
+            <div class="team-avatar" aria-label="Diego Millan Guevarez">
+              <span class="team-initials" aria-hidden="true">DM</span>
+            </div>
+            <h3 class="team-name">Diego Millan Guevarez</h3>
+            <p class="team-role">Co-Founder &amp; EHS Lead<br><small style="font-weight:400;color:var(--muted);font-family:var(--font-body);">Environmental Health &amp; Safety</small></p>
+            <p class="team-bio">Diego leads environmental health and safety strategy, bringing operational expertise to construction and field-based federal projects. His focus on safety systems and compliance strengthens every deliverable.</p>
+          </article>
+
+          <!-- Michael -->
+          <article class="team-card reveal reveal-d4">
+            <div class="team-avatar" aria-label="Michael Rodriguez Guevarez">
+              <span class="team-initials" aria-hidden="true">MR</span>
+            </div>
+            <h3 class="team-name">Michael Rodriguez Guevarez</h3>
+            <p class="team-role">Software Engineer &amp; Power Platform Expert<br><small style="font-weight:400;color:var(--muted);font-family:var(--font-body);">Full-Stack Development &amp; Automation</small></p>
+            <p class="team-bio">Michael builds the automation systems, dashboards, and custom software behind Pale Blue's data-driven approach. From Power Platform to full-stack development, he turns complexity into clarity.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===========================================================
+         6. CTA BANNER
+         =========================================================== -->
+    <section id="cta" aria-labelledby="cta-title">
+      <div class="container">
+        <div class="cta-card reveal">
+          <h2 class="cta-title" id="cta-title">Ready to position your next federal opportunity?</h2>
+          <div class="cta-btn-wrap">
+            <a href="#contact" class="btn btn-primary">
+              Let's Talk
+              <svg width="15" height="15" viewBox="0 0 15 15" fill="none" aria-hidden="true" style="stroke:currentColor;stroke-width:1.5;stroke-linecap:round;stroke-linejoin:round"><path d="M2.5 7.5h10M8.5 3.5l4 4-4 4"/></svg>
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===========================================================
+         7. CONTACT
+         =========================================================== -->
+    <section id="contact" aria-labelledby="contact-title">
+      <div class="container">
+        <div class="section-header centered reveal">
+          <span class="eyebrow">Connect</span>
+          <h2 class="section-title" id="contact-title">Get in Touch</h2>
+          <p class="section-sub" style="margin-left:auto;margin-right:auto;">We're based in Carolina, Puerto Rico and work with federal contractors across the country. Reach out — we'd love to learn about your goals.</p>
+        </div>
+
+        <div class="contact-grid">
+          <!-- Phone -->
+          <a href="tel:+17874281417" class="contact-item reveal">
+            <div class="contact-icon-wrap" aria-hidden="true">
+              <svg viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07C8.02 17.7 5.78 14.46 4.07 10.9A19.79 19.79 0 0 1 1 2.18 2 2 0 0 1 2.96 0h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L7.15 7.68a16 16 0 0 0 6.17 6.17l.07-.07a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 20 16z"/></svg>
+            </div>
+            <div>
+              <span class="contact-label">Phone</span>
+              <span class="contact-value">1 (787) 428-1417</span>
+            </div>
+          </a>
+
+          <!-- Email -->
+          <a href="mailto:info@palebluegroup.com" class="contact-item reveal reveal-d1">
+            <div class="contact-icon-wrap" aria-hidden="true">
+              <svg viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+            </div>
+            <div>
+              <span class="contact-label">Email</span>
+              <span class="contact-value">info@palebluegroup.com</span>
+            </div>
+          </a>
+
+          <!-- LinkedIn -->
+          <a href="https://www.linkedin.com/company/pale-blue-the-group-llc" target="_blank" rel="noopener noreferrer" class="contact-item reveal reveal-d2">
+            <div class="contact-icon-wrap" aria-hidden="true">
+              <!-- LinkedIn icon -->
+              <svg viewBox="0 0 24 24"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
+            </div>
+            <div>
+              <span class="contact-label">LinkedIn</span>
+              <span class="contact-value">Pale Blue The Group LLC</span>
+            </div>
+          </a>
+
+          <!-- Location -->
+          <div class="contact-item reveal reveal-d3" style="cursor:default;">
+            <div class="contact-icon-wrap" aria-hidden="true">
+              <!-- Map pin -->
+              <svg viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+            </div>
+            <div>
+              <span class="contact-label">Location</span>
+              <span class="contact-value">Carolina, Puerto Rico</span>
+            </div>
+          </div>
+        </div>
+
+        <p class="contact-tagline reveal">&ldquo;Where Mission is Driven by Value&rdquo;</p>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ============================================================
+       FOOTER
+       ============================================================ -->
+  <footer>
+    <div class="container">
+      <div class="footer-top">
+        <!-- Brand -->
+        <a href="#hero" class="logo" aria-label="Pale Blue The Group LLC — Top">
+          <div class="logo-text">
+            <span class="logo-main">PALE BLUE</span>
+            <span class="logo-sub">THE GROUP, LLC</span>
+          </div>
+        </a>
+        <p class="footer-tagline">Where Mission is Driven by Value &nbsp;·&nbsp; Carolina, Puerto Rico</p>
+        <!-- Nav -->
+        <nav class="footer-nav" aria-label="Footer navigation">
+          <a href="#services">Services</a>
+          <a href="#team">Team</a>
+          <a href="#contact">Contact</a>
+        </nav>
+      </div>
+      <div class="footer-bottom">
+        <p class="footer-copy">© 2025 Pale Blue The Group LLC. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ============================================================
+       SCRIPTS
+       ============================================================ -->
+  <script>
+    /* ---------------------------------------------------------------
+       1. GLOBE GENERATION — orthographic projection dot sphere
+       --------------------------------------------------------------- */
+    (function buildGlobe() {
+      var svg = document.getElementById('globe-svg');
+      if (!svg) return;
+
+      var SIZE = 500, cx = 250, cy = 250, R = 228;
+
+      /* -- Latitude / longitude guide lines (back then front) -- */
+      function addEllipse(rx, ry, stroke, opacity) {
+        var el = document.createElementNS('http://www.w3.org/2000/svg', 'ellipse');
+        el.setAttribute('cx', cx); el.setAttribute('cy', cy);
+        el.setAttribute('rx', rx.toFixed(2)); el.setAttribute('ry', ry.toFixed(2));
+        el.setAttribute('stroke', stroke); el.setAttribute('stroke-width', '0.6');
+        el.setAttribute('fill', 'none'); el.setAttribute('opacity', opacity);
+        svg.appendChild(el);
+      }
+
+      /* Outer circle */
+      var outline = document.createElementNS('http://www.w3.org/2000/svg', 'circle');
+      outline.setAttribute('cx', cx); outline.setAttribute('cy', cy);
+      outline.setAttribute('r', R); outline.setAttribute('stroke', '#5b9bd5');
+      outline.setAttribute('stroke-width', '0.5'); outline.setAttribute('fill', 'none');
+      outline.setAttribute('opacity', '0.25');
+      svg.appendChild(outline);
+
+      /* Latitude rings (equator + 3 above + 3 below) */
+      [0, 25, 45, 65].forEach(function(lat) {
+        var latRad = lat * Math.PI / 180;
+        var ry = R * 0.18 * Math.cos(latRad);
+        var rx = R * Math.cos(latRad);
+        var offsetY = -R * Math.sin(latRad);
+        var op = lat === 0 ? '0.22' : '0.12';
+        /* front half */
+        var el = document.createElementNS('http://www.w3.org/2000/svg', 'ellipse');
+        el.setAttribute('cx', cx); el.setAttribute('cy', (cy + offsetY).toFixed(2));
+        el.setAttribute('rx', rx.toFixed(2)); el.setAttribute('ry', ry.toFixed(2));
+        el.setAttribute('stroke', '#5b9bd5'); el.setAttribute('stroke-width', '0.5');
+        el.setAttribute('fill', 'none'); el.setAttribute('opacity', op);
+        svg.appendChild(el);
+        if (lat !== 0) {
+          /* mirror below equator */
+          var el2 = document.createElementNS('http://www.w3.org/2000/svg', 'ellipse');
+          el2.setAttribute('cx', cx); el2.setAttribute('cy', (cy - offsetY).toFixed(2));
+          el2.setAttribute('rx', rx.toFixed(2)); el2.setAttribute('ry', ry.toFixed(2));
+          el2.setAttribute('stroke', '#5b9bd5'); el2.setAttribute('stroke-width', '0.5');
+          el2.setAttribute('fill', 'none'); el2.setAttribute('opacity', op);
+          svg.appendChild(el2);
+        }
+      });
+
+      /* Meridians */
+      [0, 45, 90, 135].forEach(function(lon) {
+        var lonRad = lon * Math.PI / 180;
+        var el = document.createElementNS('http://www.w3.org/2000/svg', 'ellipse');
+        el.setAttribute('cx', cx); el.setAttribute('cy', cy);
+        el.setAttribute('rx', (R * Math.abs(Math.cos(lonRad))).toFixed(2));
+        el.setAttribute('ry', R);
+        el.setAttribute('stroke', '#5b9bd5'); el.setAttribute('stroke-width', '0.5');
+        el.setAttribute('fill', 'none'); el.setAttribute('opacity', '0.1');
+        svg.appendChild(el);
+      });
+
+      /* -- Dots on sphere surface -- */
+      var LAT_STEP = 14; /* degrees */
+      for (var lat = -82; lat <= 82; lat += LAT_STEP) {
+        var latRad = lat * Math.PI / 180;
+        var cosLat = Math.cos(latRad);
+        /* Vary longitude step so dots are evenly spaced at all latitudes */
+        var nLon = Math.max(6, Math.round(26 * cosLat));
+        for (var i = 0; i < nLon; i++) {
+          var lon = (i / nLon) * 360 - 180;
+          var lonRad = lon * Math.PI / 180;
+
+          /* Orthographic projection — only front hemisphere */
+          var z = cosLat * Math.cos(lonRad); /* depth: 1=front, -1=back */
+          if (z < -0.05) continue;
+
+          var px = cx + R * cosLat * Math.sin(lonRad);
+          var py = cy - R * Math.sin(latRad);
+
+          /* Scale size and opacity with depth */
+          var depth = (z + 1) / 2; /* 0…1 */
+          var dotR = (1.1 + depth * 2.4).toFixed(2);
+          var opacity = (0.18 + depth * 0.72).toFixed(2);
+
+          var dot = document.createElementNS('http://www.w3.org/2000/svg', 'circle');
+          dot.setAttribute('cx', px.toFixed(2));
+          dot.setAttribute('cy', py.toFixed(2));
+          dot.setAttribute('r', dotR);
+          dot.setAttribute('fill', '#5b9bd5');
+          dot.setAttribute('opacity', opacity);
+          svg.appendChild(dot);
+        }
+      }
+    })();
+
+    /* ---------------------------------------------------------------
+       2. SCROLL PROGRESS BAR
+       --------------------------------------------------------------- */
+    (function progressBar() {
+      var bar = document.getElementById('progress-bar');
+      function update() {
+        var total = document.documentElement.scrollHeight - window.innerHeight;
+        if (total <= 0) return;
+        bar.style.width = ((window.scrollY / total) * 100).toFixed(2) + '%';
+      }
+      window.addEventListener('scroll', update, { passive: true });
+      update();
+    })();
+
+    /* ---------------------------------------------------------------
+       3. NAVBAR — scroll-triggered background
+       --------------------------------------------------------------- */
+    (function navbarScroll() {
+      var navbar = document.getElementById('navbar');
+      var lastY = 0;
+      function onScroll() {
+        var y = window.scrollY;
+        if (y > 30 && !navbar.classList.contains('scrolled')) {
+          navbar.classList.add('scrolled');
+        } else if (y <= 30 && navbar.classList.contains('scrolled')) {
+          navbar.classList.remove('scrolled');
+        }
+        lastY = y;
+      }
+      window.addEventListener('scroll', onScroll, { passive: true });
+      onScroll(); /* run once on load */
+    })();
+
+    /* ---------------------------------------------------------------
+       3. MOBILE MENU
+       --------------------------------------------------------------- */
+    (function mobileMenu() {
+      var hamburger = document.getElementById('hamburger');
+      var menu      = document.getElementById('mobile-menu');
+      var closeBtn  = document.getElementById('mob-close');
+      var links     = menu.querySelectorAll('.mob-nav a');
+
+      function open() {
+        menu.classList.add('open');
+        hamburger.setAttribute('aria-expanded', 'true');
+        document.body.style.overflow = 'hidden';
+      }
+      function close() {
+        menu.classList.remove('open');
+        hamburger.setAttribute('aria-expanded', 'false');
+        document.body.style.overflow = '';
+      }
+
+      hamburger.addEventListener('click', open);
+      closeBtn.addEventListener('click', close);
+      links.forEach(function(link) {
+        link.addEventListener('click', close);
+      });
+      /* Close on Escape */
+      document.addEventListener('keydown', function(e) {
+        if (e.key === 'Escape' && menu.classList.contains('open')) close();
+      });
+    })();
+
+    /* ---------------------------------------------------------------
+       4. INTERSECTION OBSERVER — scroll-reveal animations
+       --------------------------------------------------------------- */
+    (function scrollReveal() {
+      var els = document.querySelectorAll('.reveal');
+      if (!('IntersectionObserver' in window)) {
+        /* Fallback: show everything immediately */
+        els.forEach(function(el) { el.classList.add('visible'); });
+        return;
+      }
+      var observer = new IntersectionObserver(function(entries) {
+        entries.forEach(function(entry) {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('visible');
+            observer.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.08, rootMargin: '0px 0px -40px 0px' });
+
+      els.forEach(function(el) { observer.observe(el); });
+    })();
+
+    /* ---------------------------------------------------------------
+       5. SMOOTH SCROLL — nav links with offset for fixed header
+       --------------------------------------------------------------- */
+    (function smoothScroll() {
+      document.querySelectorAll('a[href^="#"]').forEach(function(link) {
+        link.addEventListener('click', function(e) {
+          var id = link.getAttribute('href').slice(1);
+          var target = document.getElementById(id);
+          if (!target) return;
+          e.preventDefault();
+          var offset = 64; /* navbar height */
+          var top = target.getBoundingClientRect().top + window.scrollY - offset;
+          window.scrollTo({ top: top, behavior: 'smooth' });
+        });
+      });
+    })();
+  </script>
+</body>
+</html>
